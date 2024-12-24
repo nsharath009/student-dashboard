@@ -1,4 +1,3 @@
-// prisma/seed.ts
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
@@ -19,16 +18,10 @@ async function main() {
     },
   });
 
-  // Create initial students
-  const studentsData = [
-    "Anshuman Kashyap",
-    "Bansi Dadhaniya",
-    "Chandrika Valotia",
-    "Devang Dave",
-    "Forum Bhatt",
-  ];
+  // Create sample students
+  const students = ["Anshuman Kashyap", "Bansi Dadhaniya", "Chandrika Valotia"];
 
-  for (const name of studentsData) {
+  for (const name of students) {
     await prisma.student.create({
       data: {
         name,
@@ -44,7 +37,7 @@ async function main() {
     });
   }
 
-  console.log("Seed data created successfully!");
+  console.log("Seed data created");
 }
 
 main()
